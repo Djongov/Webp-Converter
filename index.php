@@ -1,19 +1,17 @@
 <h1>Webp Converter</h1>
 <form name="upload" action="" method="POST" enctype="multipart/form-data">
-	Select image to upload: <input type="file" name="image" />
+	Select image to upload (png/jpeg/jpg): <input type="file" name="image" />
 	<input type="submit" name="upload" value="upload" />
 </form>
 
 <?php
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+do {
+    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+        break;
+    }
     if (!isset($_FILES["image"])) {
         die("There is no file to upload.");
     }
-
-    //echo "<p>" . var_dump($_FILES) . "</p>";
-
     $allowedTypes = [
     'image/png' => 'png',
     'image/jpeg' => 'jpg'
@@ -63,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $ext = pathinfo($newFilepath, PATHINFO_EXTENSION);
 
-    echo '<p>Extension is '.$ext . '</p>';
+    echo '<p>Extension is ' . $ext . '</p>';
 
         if ($ext === 'png' || $ext === 'jpg') {
 
@@ -79,19 +77,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 die("BOOM");
             }
-            
             imagepalettetotruecolor($img);
             imagealphablending($img, true);
             imagesavealpha($img, true);
-            if (imagewebp($img, $targetDirectory . '/' . $newName, 100)) {
+            if (imagewebp($img, $targetDirectory . '/' . $newName, 80)) {
                 echo "<p>Successfully converted</p>";
                 $old_webp_filepath = $targetDirectory . '/' . $newName;
-                $new_webp_filepath = $targetDirectory . '/' . basename($_FILES["image"]["name"], $ext) . 'webp';
+                $new_webp_filepath = $targetDirectory . '/' . basename($_FILES["image"]["name"], $ext) . '.webp';
                 $renamed_webp = rename($old_webp_filepath, $new_webp_filepath);
                 $new_fileSize = filesize($new_webp_filepath);
                 $new_fileSize_in_KBs = $new_fileSize / 1000;
                 echo '<p>New file size: ' . $new_fileSize_in_KBs . ' KB</p>';
-                echo '<p>Download the converted webp <a href="./temp/' . basename($_FILES["image"]["name"], $ext) . 'webp' . '" target="_blank">file</a></p>';
+                echo '<p>Download the converted webp <a href="./temp/' . basename($_FILES["image"]["name"], $ext) . '.webp' . '" target="_blank">file</a></p>';
                 $saved_kbs = $fileSize_in_KBs - $new_fileSize_in_KBs;
                 if ($saved_kbs < 0) {
                     echo '<p>Unfortunately you didn\'t save any KBs (' . abs($saved_kbs) . ' KBs added extra)</p>';
@@ -102,14 +99,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 die("Conversion unsuccessful"); 
             }
             imagedestroy($img);
-            unlink($filepath);
+            //unlink($filepath);
             unlink($newFilepath);
 
         } else {
             die("File not png or jpg. Cannot convert to webp");
         }
-
-}
-
-
+} while (0);
 ?>
