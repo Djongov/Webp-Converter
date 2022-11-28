@@ -103,7 +103,6 @@ do {
     imagedestroy($img);
     //unlink($filepath);
     unlink($newFilepath);
-
-
+    
 } while (0);
 echo '</div>';

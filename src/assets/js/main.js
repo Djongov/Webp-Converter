@@ -49,7 +49,7 @@ function handleFiles(files) {
 }
 
 function uploadFile(file) {
-    if (file.size > 10000012) {
+    if (file.size > 12582912) {
         resultDiv.innerHTML = '<p class="text-center text-red-500 font-semibold">This exceeds the file limit of 10MB</p>';
         return;
     }
@@ -70,8 +70,8 @@ function uploadFile(file) {
 
 function uploadFileFromForm() {
     let file = document.getElementById('fileElem').files[0];
-    if (file.size > 10000012) {
-        resultDiv.innerHTML = '<p class="text-center text-red-500 font-semibold">This exceeds the file limit of 10MB</p>';
+    if (file.size > 12582912) {
+        resultDiv.innerHTML = '<p class="text-center text-red-500 font-semibold">This exceeds the file limit of 12MB</p>';
         return;
     }
     loader.classList.remove('hidden');
