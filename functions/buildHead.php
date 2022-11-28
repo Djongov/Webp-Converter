@@ -1,31 +1,4 @@
 <?php
-function buildHead($title) {
-    $html = <<<HTML
-        <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <title>$title</title>
-                <link rel="icon" type="image/x-icon" href="/assets/images/icon.png">
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-                <script src="https://cdn.tailwindcss.com"></script>
-                <script nonce="1nL1n3JsRuN1192kwoko2k323WKE">
-                    tailwind.config = {
-                        theme: {
-                            extend: {
-                                colors: {
-                                    clifford: '#da373d',
-                                }
-                            }
-                        },
-                        darkMode: 'class',
-                    }
-                </script>
-            </head>
-    HTML;
-    return $html;
-}
-
 function buildHeadDescription($title, $keywords, $description, $thumbimage = '') {
     // Import file with cookie settings, html start, scripts
     $html = '';
@@ -68,7 +41,7 @@ function buildHeadDescription($title, $keywords, $description, $thumbimage = '')
     $html .= '<script src="/assets/js/main.js" defer></script>';
     $html .= '<script src="/assets/js/theme-switcher.js" defer></script>';
     $html .= <<< InlineScript
-    <script nonce="">
+    <script nonce="1nline1sRuN1192kwoko2k323WKE">
         tailwind.config = {
             theme: {
                 extend: {

@@ -38,3 +38,5 @@ include_once dirname($_SERVER['DOCUMENT_ROOT']) . '/components/page/header.php';
     </div>
 </div>
 <div id="result"></div>
+</body>
+</html>
