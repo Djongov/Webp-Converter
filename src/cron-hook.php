@@ -9,10 +9,10 @@ if (isset($_POST['delete']) and $_POST['delete'] === 'all') {
             }
         }
     }
-    echo 'Deleted ' . count($deleted_files);
+    echo (count($deleted_files) > 0) ? 'Deleted ' . count($deleted_files) : null;
     if (isset($_SERVER['HTTP_CRONHOOKS_SIGNATURE'])) {
-        echo $_SERVER['HTTP_CRONHOOKS_SIGNATURE'];
-        echo '<br />;
+        echo PHP_EOL . $_SERVER['HTTP_CRONHOOKS_SIGNATURE'];
+        echo PHP_EOL;
         $payload = @file_get_contents('php://input');
         echo $payload;
     }

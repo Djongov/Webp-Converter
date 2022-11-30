@@ -68,11 +68,11 @@ do {
 
     // Create and save
     if ($extension === 'jpg') {
-        $img = imagecreatefromjpeg($newFilepath);
+        $img = @imagecreatefromjpeg($newFilepath);
     } elseif ($extension === 'png') {
-        $img = imagecreatefrompng($newFilepath);
+        $img = @imagecreatefrompng($newFilepath);
     } elseif ($extension === 'jpeg') {
-        $img = imagecreatefromjpeg($newFilepath);
+        $img = @imagecreatefromjpeg($newFilepath);
     } else {
         echo '<p class="' . $error_class . '">Can\'t create reference image. Something is wrong with your source or our logic</p>';
         break 1;
