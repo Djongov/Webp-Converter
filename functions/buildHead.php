@@ -6,7 +6,7 @@ function buildHeadDescription($title, $keywords, $description, $thumbimage = '')
     $html .= '<html lang="en">' . PHP_EOL;
     $html .= '<head>';
     $html .=  PHP_EOL . '<title>' . $title . '</title>' . PHP_EOL;
-    $html .= '<link rel="icon" type="image/x-icon" href="/assets/images/icon.png" />' . PHP_EOL;
+    //$html .= '<link rel="icon" type="image/x-icon" href="/assets/images/icon.png" />' . PHP_EOL;
     //$html .= '<link rel="apple-touch-icon" href="/apple-touch-icon.png" />' . PHP_EOL;
     $html .= '<!-- Meta tags -->' . PHP_EOL;
     //$html .= '<meta name="apple-mobile-web-app-capable" content="yes">' . PHP_EOL;
@@ -40,6 +40,7 @@ function buildHeadDescription($title, $keywords, $description, $thumbimage = '')
     $html .= '<script src="https://cdn.tailwindcss.com"></script>';
     $html .= '<script src="/assets/js/main.js" defer></script>';
     $html .= '<script src="/assets/js/theme-switcher.js" defer></script>';
+    $html .= '<link rel="stylesheet" href="/assets/css/main.css" type="text/styleshet" />';
     $html .= <<< InlineScript
     <script nonce="1nline1sRuN1192kwoko2k323WKE">
         tailwind.config = {
