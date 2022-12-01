@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .hoverbright:hover {
   -webkit-filter:brightness(1.35);
   filter:brightness(1.35)

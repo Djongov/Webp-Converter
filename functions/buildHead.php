@@ -1,5 +1,5 @@
 <?php
-function buildHeadDescription($title, $keywords, $description, $thumbimage = '') {
+function buildHeadDescription($title, $keywords, $description, $thumbimage = 'https://webp-converter.gamerz-bg.com/assets/webp-converter.png') {
     // Import file with cookie settings, html start, scripts
     $html = '';
     $html .= '<!DOCTYPE html>' . PHP_EOL;
@@ -35,26 +35,10 @@ function buildHeadDescription($title, $keywords, $description, $thumbimage = '')
     $html .= '<meta property="twitter:image" content="' . $thumbimage . '" />' . PHP_EOL;
     $html .= '<meta property="twitter:image:alt" content="' . $title . '" />' . PHP_EOL;
     $html .= '<!-- Stylesheets -->' . PHP_EOL;
-    //$html .= '<link rel="stylesheet" href="/assets/css/main.css" type="text/css" />' . PHP_EOL;
     $html .= '<!-- Scripts -->' . PHP_EOL;
-    $html .= '<script src="https://cdn.tailwindcss.com"></script>';
     $html .= '<script src="/assets/js/main.js" defer></script>';
     $html .= '<script src="/assets/js/theme-switcher.js" defer></script>';
-    $html .= '<link rel="stylesheet" href="/assets/css/main.css" type="text/styleshet" />';
-    $html .= <<< InlineScript
-    <script nonce="1nline1sRuN1192kwoko2k323WKE">
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                    }
-                }
-            },
-            darkMode: 'class',
-        }
-    </script>
-    InlineScript . PHP_EOL;
+    $html .= '<link rel="stylesheet" href="/assets/css/main.css" />';
     $html .= '</head>' . PHP_EOL;
     return $html;
 }

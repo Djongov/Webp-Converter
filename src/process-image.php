@@ -95,7 +95,7 @@ do {
         } else {
             echo '<p>You saved ' . $saved_kbs . ' KB which is <strong>' . round(($fileSize_in_KBs / $new_fileSize_in_KBs) * 100) . '% savings</strong></p>';
         }
-        echo '<p>Download the converted webp <a class="underline text-green-500 hover:text-green-600 font-semibold" href="./temp/' . basename($new_webp_filepath) . '" target="_blank">file</a></p>';
+        echo '<p>Download the converted webp <a class="underline text-green-500 hover:text-green-600 font-semibold" href="./temp/' . basename($new_webp_filepath) . '" target="_blank" download="' . basename($new_webp_filepath) . '">file</a></p>';
         echo '<p>You have 5 minutes to download it, then it disappears</p>';
         echo '<p>Preview:</p>';
         echo '<p><img class="hoverbright text-center mx-auto" src="./temp/' . basename($new_webp_filepath) . '" alt="Your Image" width="90%" height="auto" /></p>';
