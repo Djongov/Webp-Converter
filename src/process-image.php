@@ -99,6 +99,8 @@ do {
         echo '<p>You have 5 minutes to download it, then it disappears</p>';
         echo '<p>Preview:</p>';
         echo '<p><img class="hoverbright text-center mx-auto" src="./temp/' . basename($new_webp_filepath) . '" alt="Your Image" width="90%" height="auto" /></p>';
+        include_once dirname($_SERVER['DOCUMENT_ROOT']) . '/functions/actionLog.php';
+        writeToLogFile('Successfully converted ' . basename($new_webp_filepath));
     } else {
         echo '<p class="' . $error_class . '">Conversion unsuccessful</p>';
         break 1;
