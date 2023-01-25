@@ -38,5 +38,6 @@ include_once dirname($_SERVER['DOCUMENT_ROOT']) . '/components/page/header.php';
     </div>
 </div>
 <div id="result"></div>
+<script>var qwe = 'qwe';</script>
 </body>
 </html>
