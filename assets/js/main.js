@@ -50,13 +50,13 @@ function handleFiles(files) {
 
 function uploadFile(file) {
     if (file.size > 12582912) {
-        resultDiv.innerHTML = '<p class="text-center text-red-500 font-semibold">This exceeds the file limit of 10MB</p>';
+        resultDiv.innerHTML = '<p class="text-center text-red-500 font-semibold">This exceeds the file limit of 12MB</p>';
         return;
     }
     loader.classList.remove('hidden');
     let formData = new FormData(uploadForm);
     formData.append('image', file);
-    fetch('./process-image', {
+    fetch('./process-image.php', {
         method: 'POST',
         body: formData
     })
@@ -77,7 +77,7 @@ function uploadFileFromForm() {
     loader.classList.remove('hidden');
     let formData = new FormData();
     formData.append('image', file);
-    fetch('./process-image', {
+    fetch('./process-image.php', {
         method: 'POST',
         body: formData
     })

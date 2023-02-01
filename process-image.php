@@ -36,7 +36,7 @@ do {
         break 1;
     }
 
-    if ($fileSize > 12582912) { // 12 MB (1 byte * 1024 * 1024 * 12 (for 12 MB))
+    if ($fileSize > intval(ini_get('post_max_size')) * 1024 * 1024) {
         echo '<p class="' . $error_class . '">File exceeds 12MB/p>';
         break 1;
     }
