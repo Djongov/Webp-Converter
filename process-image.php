@@ -98,8 +98,8 @@ do {
         echo '<p>Download the converted webp <a class="underline text-green-500 hover:text-green-600 font-semibold" href="./temp/' . basename($new_webp_filepath) . '" target="_blank" download="' . basename($new_webp_filepath) . '">file</a></p>';
         echo '<p>You have 5 minutes to download it, then it disappears</p>';
         echo '<p>Preview:</p>';
-        echo '<p><img class="hoverbright text-center mx-auto" src="./temp/' . basename($new_webp_filepath) . '" alt="Your Image" width="90%" height="auto" /></p>';
-        include_once dirname($_SERVER['DOCUMENT_ROOT']) . '/functions/actionLog.php';
+        echo '<p><img class="text-center mx-auto" src="./temp/' . basename($new_webp_filepath) . '" alt="Your Image" width="90%" height="auto" /></p>';
+        include_once $_SERVER['DOCUMENT_ROOT'] . '/functions/actionLog.php';
         writeToLogFile('Successfully converted ' . basename($new_webp_filepath));
     } else {
         echo '<p class="' . $error_class . '">Conversion unsuccessful</p>';

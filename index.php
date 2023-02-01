@@ -1,5 +1,5 @@
 <?php
-include_once dirname($_SERVER['DOCUMENT_ROOT']) . '/components/page/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/components/page/header.php';
 ?>
 <div class="max-w-xl mx-auto" id="drop-area">
     <p class="my-4 text-center">Convert png/jpeg files to webp</p>
@@ -21,7 +21,7 @@ include_once dirname($_SERVER['DOCUMENT_ROOT']) . '/components/page/header.php';
         <p class="text-center">Or</p>
         <div class="text-center mt-4">
             <form id="log-upload-form" enctype="multipart/form-data">
-                <input type="file" id="fileElem" name="image" />
+                <input type="file" id="fileElem" name="image" accept=".jpeg, .jpg, .png" />
                 <button type="submit" class="ml-2 bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white w-24 h-10 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg">
                     Upload
                 </button>
@@ -38,6 +38,5 @@ include_once dirname($_SERVER['DOCUMENT_ROOT']) . '/components/page/header.php';
     </div>
 </div>
 <div id="result"></div>
-<script>var qwe = 'qwe';</script>
 </body>
 </html>

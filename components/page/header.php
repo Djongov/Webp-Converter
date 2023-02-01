@@ -1,5 +1,5 @@
 <?php
-include_once dirname($_SERVER['DOCUMENT_ROOT']) . '/functions/buildHead.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/functions/buildHead.php';
 echo buildHeadDescription('WEBP Converter', ['webp', 'converter', 'webp converter'], 'Here you can convert your png, jpg, jpeg images to the optimized for web webp format');
 echo '<body class="antialiased bg-white dark:bg-gray-900">';
     echo '<div class="md:mx-auto text-gray-700 dark:text-gray-400">';
@@ -9,7 +9,7 @@ echo '<body class="antialiased bg-white dark:bg-gray-900">';
                             <span class="sr-only">GitHub account</span>
                         </a>';
                     echo '<h1 class="font-semibold text-3xl">WEBP Converter</h1>';
-                    include_once dirname($_SERVER['DOCUMENT_ROOT']) . '/components/theme-switcher.php';
+                    include_once $_SERVER['DOCUMENT_ROOT'] . '/components/theme-switcher.php';
             echo '</div>';
             echo '<hr class="border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-2">';
 ?>
