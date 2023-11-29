@@ -42,4 +42,3 @@ function buildHeadDescription($title, $keywords, $description, $thumbimage = 'ht
     $html .= '</head>' . PHP_EOL;
     return $html;
 }
-?>

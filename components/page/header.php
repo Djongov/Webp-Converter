@@ -12,4 +12,3 @@ echo '<body class="antialiased bg-white dark:bg-gray-900">';
                     include_once $_SERVER['DOCUMENT_ROOT'] . '/components/theme-switcher.php';
             echo '</div>';
             echo '<hr class="border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-2">';
-?>

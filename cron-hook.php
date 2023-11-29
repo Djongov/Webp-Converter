@@ -9,4 +9,3 @@ foreach($files as $file){ // iterate files
     }
 }
 $result = (count($deleted_files) > 0) ? 'Deleted ' . count($deleted_files) . ' files' : 'Nothing deleted';
-?>

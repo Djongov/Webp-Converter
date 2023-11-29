@@ -1,9 +1,13 @@
 <?php
+// Check if gd extension is installed
+if (!extension_loaded('gd')) {
+    die('GD extension is not installed');
+}
 include_once $_SERVER['DOCUMENT_ROOT'] . '/components/page/header.php';
 ?>
 <div class="max-w-xl mx-auto" id="drop-area">
     <p class="my-4 text-center">Convert png/jpeg files to webp</p>
-    <p class="my-4 text-center">Images that are uploaded are deleted every 5 minutes (11:45, 12:00 ... etc)</p>
+    <p class="my-4 text-center">Uploaded images disappear immediately</p>
     <p class="my-4 text-center"><?=ini_get('post_max_size')?>B limit</p>
     <label
         class="flex justify-center w-full h-32 px-4 transition bg-gray-200 border-2 border-gray-300 dark:border-gray-400 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none dark:bg-gray-800">
@@ -38,5 +42,41 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/components/page/header.php';
     </div>
 </div>
 <div id="result"></div>
+<div class="my-16 mx-4 w-max-full">
+    <?php
+    $file_path = 'access.log';
+    // set the display_errors to On
+    ini_set('display_errors', 1);
+    // Open the file for reading
+    $file_handle = fopen($file_path, 'r');
+    if ($file_handle) {
+        echo '<h1 class="my-4 text-center font-semibold text-3xl">Latest Logs</h1>';
+        // Read the contents of the file
+        if (filesize($file_path) > 0) {
+            // Read the contents of the file
+            $file_contents = fread($file_handle, filesize($file_path));
+
+            // Output the contents (you can also do other operations here)
+
+            // Output the contents (you can also do other operations here)
+            $file_array = explode(PHP_EOL, $file_contents);
+            echo '<ul class="my-6">';
+            foreach ($file_array as $key => $value) {
+                echo '<li>' . $value . '</li>';
+            }
+            echo '</ul>';
+            
+        } else {
+            echo "Log file is empty";
+        }
+
+        // Close the file handle
+        fclose($file_handle);
+    } else {
+        // Handle the case where the file couldn't be opened
+        echo "Unable to open file: $file_path";
+    }
+    ?>
+</div>
 </body>
 </html>
