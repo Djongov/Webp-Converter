@@ -106,7 +106,8 @@ do {
         break 1;
     }
     imagedestroy($img);
-    emptyTemp();
+    //emptyTemp();
+    unlink($newFilepath); // Delete the temp file
     
 } while (0);
 echo '</div>';
