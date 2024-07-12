@@ -44,38 +44,38 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/components/page/header.php';
 <div id="result"></div>
 <div class="my-16 mx-4 w-max-full">
     <?php
-    $file_path = 'access.log';
-    // set the display_errors to On
-    ini_set('display_errors', 1);
-    // Open the file for reading
-    $file_handle = fopen($file_path, 'r');
-    if ($file_handle) {
-        echo '<h1 class="my-4 text-center font-semibold text-3xl">Latest Logs</h1>';
-        // Read the contents of the file
-        if (filesize($file_path) > 0) {
-            // Read the contents of the file
-            $file_contents = fread($file_handle, filesize($file_path));
+    // $file_path = 'access.log';
+    // // set the display_errors to On
+    // ini_set('display_errors', 1);
+    // // Open the file for reading
+    // $file_handle = fopen($file_path, 'r');
+    // if ($file_handle) {
+    //     echo '<h1 class="my-4 text-center font-semibold text-3xl">Latest Logs</h1>';
+    //     // Read the contents of the file
+    //     if (filesize($file_path) > 0) {
+    //         // Read the contents of the file
+    //         $file_contents = fread($file_handle, filesize($file_path));
 
-            // Output the contents (you can also do other operations here)
+    //         // Output the contents (you can also do other operations here)
 
-            // Output the contents (you can also do other operations here)
-            $file_array = explode(PHP_EOL, $file_contents);
-            echo '<ul class="my-6">';
-            foreach ($file_array as $key => $value) {
-                echo '<li>' . $value . '</li>';
-            }
-            echo '</ul>';
+    //         // Output the contents (you can also do other operations here)
+    //         $file_array = explode(PHP_EOL, $file_contents);
+    //         echo '<ul class="my-6">';
+    //         foreach ($file_array as $key => $value) {
+    //             echo '<li>' . $value . '</li>';
+    //         }
+    //         echo '</ul>';
             
-        } else {
-            echo "Log file is empty";
-        }
+    //     } else {
+    //         echo "Log file is empty";
+    //     }
 
-        // Close the file handle
-        fclose($file_handle);
-    } else {
-        // Handle the case where the file couldn't be opened
-        echo "Unable to open file: $file_path";
-    }
+    //     // Close the file handle
+    //     fclose($file_handle);
+    // } else {
+    //     // Handle the case where the file couldn't be opened
+    //     echo "Unable to open file: $file_path";
+    // }
     ?>
 </div>
 </body>
