@@ -28,6 +28,14 @@ do {
     $fileSize = filesize($filepath);
     $fileSize_in_KBs = $fileSize / 1000;
     echo '<p>File size: ' . $fileSize_in_KBs . ' KB</p>';
+    // Check if finfo_open is available
+    if (function_exists('finfo_open')) {
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $filetype = finfo_file($finfo, $filepath);
+    } else {
+        echo '<p class="' . $error_class . '">File info functions are not available on this server</p>';
+        break 1;
+    }
     $fileinfo = finfo_open(FILEINFO_MIME_TYPE);
     $filetype = finfo_file($fileinfo, $filepath);
 
